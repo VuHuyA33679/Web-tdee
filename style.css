@@ -1,0 +1,40 @@
+body { 
+    background-color:#FAFAFA;
+}
+
+#container {
+    display: flex;
+    
+}
+
+
+img.pull-left { padding-right:10px; }
+img.pull-right { padding-left:10px; }
+
+.tiêu-đề{
+    color: #033769;
+	font-weight:bold;
+	font-size:27px;
+	text-align:center;
+}
+
+.btn{
+    color: white !important;
+}
+
+.btn-submit{
+	margin-top:10px;
+	background-color: #006dcc;
+    background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+
+}
+
+#footerwrap{
+    margin-top:60px;
+    padding:20px 0;
+}
+    

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- hỗ trợ tiếng việt -->
+        <meta charset="utf-8">
+        <title>Fitness Calculator | Tìm hiểu tổng mức năng lượng bạn tiêu thụ mỗi ngày</title>
+        <meta name="description" content="Công cụ tính chỉ số TDEE đơn giản và chính xác nhất, tìm hiểu chỉ số TDEE của bạn ngay thôi nào.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="https://tdeecalculator.net/favicon.ico">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 class="tiêu-đề">Tính số lượng calo bạn đã tiêu thụ mỗi ngày</h1>
+            <p class="đoạn giới thiệu-center">
+                <strong>
+                    Dùng Fitness Calculator để
+                    <em>tính tổng mức năng lượng tiêu thụ hằng ngày,</em>
+                </strong>
+                giúp đo lượng mức calories bạn đốt trong ngày. Bộ tính này cũng sẽ cho bạn thấy chỉ số 
+                <abbr title="Body Mass Index (Chỉ số khối cơ thể)">BMI</abbr>, 
+                <abbr title="Basal Metabolic Rate (Tỷ lệ trao đổi chất cơ bản)"> BMR</abbr>, 
+                <abbr title="Macronutrients (Các chất dinh dưỡng đa lượng)"> Macros</abbr>, 
+                và nhiều số liệu thống kê hữu ích khác!
+            </p>
+            <div class="row">
+                <form name="form-metric" method="post" action="result.php">
+                    <table>
+                        <thead>
+                            <th>Nhập thông tin của bạn vào nhé</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col1">Giới tính</td>
+                                <td>
+                                    <label>
+                                        <input type="radio" name="gender" id="male" value="male" checked>Nam&nbsp;
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gender" id="female" value="female">Nữ
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col1">Tuổi</td>
+                                <td>
+                                    <input type="text" name="age" class="form-control" id="age" style="width: 60px;" maxlength="3" value>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col1">Cân nặng</td>
+                                <td>
+                                    <input type="text" name="weight" class="form-control" id="weight" placeholder="kg" style="width: 60px;" maxlength="3" value>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col1">Chiều cao</td>
+                                <td>
+                                    <input type="text" name="height" class="form-control" id="height" placeholder="cm" style="width: 60px;" maxlength="3" value>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col1">Cường độ tập luyện</td>
+                                <td>
+                                    <select name="activity" class="form-control" id="activity" style="width: 200px;">
+                                        <option value="1.2" selected>Ít vận động (không tập/nhân viên văn phòng)</option>
+                                        <option value="1.375">Vận động nhẹ (1-2 ngày/tuần)</option>
+                                        <option value="1.55">Tập vừa (3-5 ngày/tuần)</option>
+                                        <option value="1.725">Tập nặng (6-7 ngày/tuần)</option>
+                                        <option value="1.9">Vận động viên (2 lần/ngày)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="position: relative;" class="col1 text-muted">
+                                    <label for="bodyfat">Phần trăm chất béo</label>
+                                    <span style="position: absolute; top: 26px; left: 14px;">(tùy chọn)</span>
+                                </td>
+                                <td id="bf">
+                                    <input type="text" name="bodyfat" class="form-control" id="bodyfat" style="width: 46px;display: inline-block;" maxlength="2" placeholder="15">
+                                    <span id="bodyfatpercent">%</span>
+                                </td>
+                            </tr>
+                            <tr style="margin-top: 15px;">
+                                <td class="col1">&nbsp;</td>
+                                <td>
+                                    <input type="submit" class="btn btn-submit btn-lg" id="submit" value="Tính TDEE">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <hr>
+            <h3>TDEE được tính như thế nào</h3>
+            <img src="https://tdeecalculator.net/assets/images/tdee-pie-chart.png" alt="Biểu đồ tròn TDEE" class="pull-right" width="300" height="154">
+            <p>TDEE (Total Daily Energy Expenditure) nghĩa là lượng calo bạn sẽ đốt cháy trong 1 ngày, bao gồm cả ăn chơi ngủ nghỉ và tập luyện.</p>
+            <p>Vì tỉ lệ trao đổi chất cơ bản của bạn thể hiện lượng calo mà cơ thể bạn đốt cháy khi nghỉ ngơi, nên cần phải điều chỉnh các con số tăng lên để tính lượng calo bạn đốt cháy trong ngày. Điều này đúng ngay cả với những người có lối sống ít vận động. Bộ tính TDEE của chúng tôi sử dụng các công thức tốt nhất và hiển thị điểm số của bạn theo cách dễ đọc và có ý nghĩa.</p>
+        </div>
+        <!-- end .container -->
+        <div id="footerwrap" class="footer">
+            <div id="container"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    </body>
+</html>
